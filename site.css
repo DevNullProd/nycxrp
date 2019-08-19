@@ -1,0 +1,68 @@
+#bg{
+  z-index: -1;
+}
+
+.max-content{
+  width: max-content;
+}
+
+.center-text{
+  text-align: center;
+}
+
+.position-abs{
+  position: absolute;
+}
+
+.step{
+  color: white;
+  min-width: 500px;
+  min-height: 250px;
+  padding: 50px;
+  z-index: 1;
+}
+
+.substep { opacity: 0; }
+.substep.substep-visible { opacity: 1; transition: opacity 1s; }
+
+#Sponsors1 img{
+  opacity: 0;
+}
+
+#Sponsors1.activated img{
+  animation-name: Sponsors1-ani;
+  animation-duration: 1s;   
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes Sponsors1-ani {
+  from{opacity:0;}
+  to{opacity: 1;}
+}
+
+#Sponsors2{
+  min-height: 250px;
+  min-width: 350px;
+
+  background-image: url('./diagonal-arrow.svg');
+  background-repeat: no-repeat;
+  background-position: right 25px bottom 25px;
+  background-size: 25%;
+}
+
+#WhatIsXRP .left,
+#WhatIsAComputer .left,
+#ComputerHardware .left,
+#ComputerPowerUseCase .left,
+.bitorrent_substep.left{
+  opacity: 0;
+}
+
+#WhatIsXRP .left:last,
+#WhatIsAComputer .left:last,
+#ComputerHardware .left:last,
+#ComputerPowerUseCase .left:last,
+.bitorrent_substep.left:last{
+  opacity: 1;
+}
