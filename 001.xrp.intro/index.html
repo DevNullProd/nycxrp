@@ -17,7 +17,7 @@
 
       <div id="Sponsors1" class="step max-content center-text" data-x="-4050" data-y="-3750">
         <h2>A NYC/XRP presentation</h2>
-        <img src="nyc.jpg" />
+        <img src="../common/nyc.jpg" />
       </div>
 
       <div id="Sponsors2" class="step max-content center-text" data-x="-2800" data-y="-2500">
@@ -31,11 +31,6 @@
 
         <div id="GoBack" class="substep position-abs">
           <h3>To answer that, we have to go back...</h3>
-          <img src="delorian.png" width=350 />
-        </div>
-
-        <div id="WayBack" class="substep position-abs">
-          <h3>Waaay back...</h3>
           <img src="delorian-flying.gif" width=350/>
         </div>
       </div>
@@ -44,8 +39,7 @@
         <h1>What is a computer?</h1>
 
         <div class="substep position-abs">
-          <h3>A series of tubes</h3>
-          <img src="tubes.gif" />
+          <img src="computer.jpg" width=450 />
         </div>
 
         <div class="substep position-abs">
@@ -79,18 +73,18 @@
         </div>
       </div>
 
-      <div id="ComputerUseCase" class="step max-content center-text" data-x="3100" data-y="-2600">
-        <p>People (<span style="color: blue; font-weight: bold">you</span>) use all this hardware in conjunction with control sequences (called <b>software</b>) to do cool things.</p>
+      <div id="ComputerUseCase" class="step limit-step max-content center-text" data-x="3100" data-y="-2600">
+        <p class="large-font">People (<span style="color: yellow; font-weight: bold">you</span>) use all this hardware in conjunction with control sequences (called <b>software</b>) to do cool things.</p>
         <div class="substep">
           <p>This brings us to the <b>90's</b>...</p>
           <img src="mchammer.gif" />
         </div>
       </div>
 
-      <div id="ComputerPower" class="step max-content center-text" data-x="3850" data-y="-3450">
-        <p>Computational power and connectivity is increasing dramatically</p>
-        <img src="connectivity.jpg" />
-        <p>More people have more access to more powerful computers and networks</p>
+      <div id="ComputerPower" class="step limit-step max-content center-text" data-x="3850" data-y="-3450">
+        <p class="large-font">Computational power and connectivity is increasing dramatically</p>
+        <img src="connectivity.jpg" width=500 />
+        <p class="large-font">More people have more access to more powerful computers and networks</p>
       </div>
 
       <div id="ComputerPowerUseCase" class="step max-content center-text" data-x="4500" data-y="-4250" style="min-height: 500px">
@@ -128,7 +122,7 @@
         <h1>BitTorrent</h1>
       </div>
 
-      <div id="Bittorrent2" class="step max-content center-text" data-x="3850" data-y="3450">
+      <div id="Bittorrent2" class="step limit-step mid-font max-content center-text" data-x="3850" data-y="3450">
         <h2>BitTorrent</h2>
         <ul style="list-style: none;">
           <li class="substep">
@@ -137,12 +131,12 @@
           </li>
           <li class="substep">They do not contain actual content</li>
           <li class="substep">But rather they list <b>who</b> has the data</li>
-          <li class="substep position-abs bitorrent_substep">
+          <li class="substep position-abs bitorrent_substep" style="width: 500px">
             <p>Clients then <b>connect to peers</b> and retrieve data</p>
             <img src="bitorrent1.png" />
           </li>
-          <li class="substep position-abs bitorrent_substep">
-            <p>Then <b>share it with others</b></p>
+          <li class="substep position-abs bitorrent_substep" style="width: 500px">
+            <p>Then <b>share it with others</b></p><br/>
             <img src="bitorrent2.png" />
           </li>
         </ul>
@@ -153,14 +147,14 @@
         <div class="substep">Finally</div>
       </div>
 
-      <div id="Blockchain2" class="step max-content center-text" data-x="1750" data-y="1750">
+      <div id="Blockchain2" class="step limit-step large-font max-content center-text" data-x="1750" data-y="1750">
         <h2>Blockchain</h2>
         <p class="substep">Blockchain means many different this but at it's core it's a peer-to-peer (P2P) network, <i>not that unlike</i> BitTorrent</p>
-        <p class="substep">Even the prodigal Blockchain <b>Bit</b>coin shares its namesake with <b>Bit</b>Torrent</p>
+        <p class="substep">Even the prodigal Blockchain <b style="color: red">Bit</b>coin shares its namesake with <b style="color: red">Bit</b>Torrent</p>
         <p class="substep">In the case of Blockchain the "<i>file</i>" being shared is an application specific database</p>
       </div>
 
-      <div id="BTC" class="step max-content center-text" data-x="0" data-y="1250">
+      <div id="BTC" class="step limit-step large-font max-content center-text" data-x="0" data-y="1250">
         <h2>BTC</h2>
         <div class="substep">
           <p>With Bitcoin, new records are added to that database by <b>mining</b>, a resourse-intensive software operations</p>
@@ -170,7 +164,7 @@
         <p class="substep">faciliates the execution of transactions modifying balances</p>
       </div>
 
-      <div id="XRP1" class="step max-content center-text" data-x="-1250" data-y="1250">
+      <div id="XRP1" class="step limit-step mid-font max-content center-text" data-x="-1250" data-y="1250">
         <p>With <b>XRP</b> the shared database consists of</p>
         <ul style="list-style: none">
           <li class="substep"><b> The state tree</b> - a record of all accounts, balances, settings, etc</li>
@@ -190,28 +184,30 @@
         </div>
       </div>
 
-      <div id="XRP2" class="step max-content center-text" data-x="-2250" data-y="2500">
+      <div id="XRP2" class="step limit-step large-font max-content center-text" data-x="-2250" data-y="2500">
         <p>Thus we get all the same benefits of Proof Of Work (PoW) but without the energy use!</p>
-        <img src="recycle.png" />
+        <img src="recycle.png" width=500 />
       </div>
 
-      <div id="XRP3" class="step max-content center-text" data-x="-3650" data-y="3650">
+      <div id="XRP3" class="step limit-step large-font max-content" data-x="-3650" data-y="3650">
         <p>Other benefits:</p>
-        <ul style="list-style: none">
-          <li>Deterministic Consensus Time (PoW is probabilistic)</li>
-          <li>Developer &amp; financial friendly ecosystem</li>
-          <li>Self-governance via a protocol amendment system</li>
+        <ul style="list-style: square">
+          <li><b>Deterministic</b> Consensus Time (PoW is <i>probabilistic</i>)</li>
+          <br/>
+          <li>Developer &amp; financial <span style="color: green">friendly</span> ecosystem</li>
+          <br/>
+          <li><b>Self-governance</b> via a protocol amendment system</li>
         </ul>
       </div>
 
-      <div id="FIN" class="step max-content center-text" data-x="-4250" data-y="4250">
+      <div id="FIN" class="step limit-step large-font max-content center-text" data-x="-4250" data-y="4250">
         <p>And that's just the tip of the iceberg. For more info visit some of these great resources:</p>
         <ul style="list-style: none; padding-left: 0">
-          <li><a href="http://xrpl.org">xrpl.org</a></li>
-          <li><a href="https://fudbingo.com">fudbingo.com</a></li>
-          <li><a href="https://coil.com/u/Hodor">coil.com/u/Hodor</a></li>
-          <li><a href="https://xrp1ntel.com">xrp1ntel.com</a></li>
-          <li style="text-decoration: line-through"><a href='https://twitter.com'>Twitter</a></li>
+          <li><a style="color: white" href="http://xrpl.org">xrpl.org</a></li>
+          <li><a style="color: white" href="https://fudbingo.com">fudbingo.com</a></li>
+          <li><a style="color: white" href="https://coil.com/u/Hodor">coil.com/u/Hodor</a></li>
+          <li><a style="color: white" href="https://xrp1ntel.com">xrp1ntel.com</a></li>
+          <li style="text-decoration: line-through"><a style="color:white" href='https://twitter.com'>Twitter</a></li>
         </ul>
 
         <hr/>
@@ -223,7 +219,7 @@
       </div>
     </div>
 
-    <script type="text/javascript" src="impress.js"></script>
+    <script type="text/javascript" src="../common/impress.js"></script>
     <script>
        impress().init();
 

@@ -1,3 +1,11 @@
+.mid-font{
+  font-size: 1.5em;
+}
+
+.large-font{
+  font-size: 2em;
+}
+
 #bg{
   z-index: -1;
 }
@@ -20,6 +28,10 @@
   min-height: 250px;
   padding: 50px;
   z-index: 1;
+}
+
+.limit-step{
+  max-width: 100%;
 }
 
 .substep { opacity: 0; }
