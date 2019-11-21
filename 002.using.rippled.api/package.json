@@ -1,0 +1,8 @@
+{
+  "name": "hello-ripple",
+  "version": "0.0.1",
+  "dependencies": {
+    "ripple-lib": "*",
+    "jsonpath" : "*"
+  }
+}

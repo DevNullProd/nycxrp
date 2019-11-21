@@ -1,0 +1,247 @@
+<html>
+  <head>
+    <title>XRP - The Intro</title>
+    <link href="site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../common/highlight.css">
+    <script src="../common/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body>
+    <div id="impress">
+      <div id="UsingTheRippledAPI" class="step max-content" data-x="0" data-y="0">
+        <h1>Using the Rippled API</h1>
+      </div>
+
+      <div id="Sponsors1" class="step" data-x="0" data-y="1000">
+        <h1>A NYC/XRP presentation</h1>
+        <img src="../common/nyc.jpg" />
+      </div>
+
+      <div id="Sponsors2" class="step max-content center-text" data-x="0" data-y="2000">
+        <h2>By:</h2>
+
+        <img src="../common/dnp.png" style="width: 500px; margin: auto; display: block;"/>
+
+        <h2>(Mo Morsi)</h2>
+      </div>
+
+      <div id="Recap" class="step max-content" data-x="0" data-y="3000">
+        <h1>What is XRP? (a recap)</h1>
+
+        <ul class="mid-font">
+          <li>A Blockchain</li>
+          <li>A <b>Decentralized</b> Exchange &amp; Payments Network</li>
+          <li>Fintech being adopted by instutions world-wide</li>
+        </ul>
+
+        <img src="../common/xrp.png" style="display: block; margin: auto; width: 500px"/>
+      </div>
+
+      <div id="HowToUse" class="step max-content" data-x="0" data-y="4000">
+        <h1>How do we use it?</h1>
+        <h2>Web based tech</h2>
+        <div>➥ Can be used from any language</div>
+      </div>
+
+      <div id="RippleLib" class="step max-content" data-x="0" data-y="5000">
+        <h1>ripple-lib is the "official" client</h1>
+        <h2>Written in javascript</h2>
+        <h2>We're going to use that today</h2>
+        <h3>Some JS &amp; programming knowledge will help</h3>
+        <h3>But don't worry, we'll keep it new-user friendly</h3>
+      </div>
+
+      <div id="Prereqs" class="step max-content" data-x="0" data-y="6000">
+        <h2>Prereqs</h2>
+
+        <div>
+          Assuming you have <b>nodejs</b> (javascript interpreter) and <b>yarn</b> (javascript dependency manager) installed,
+          pull in <a href="https://xrpl.org/get-started-with-rippleapi-for-javascript.html">ripple-lib</a>.
+        </div>
+
+        <div style="margin-top: 15px">
+          Create <b>package.json</b>:
+        </div>
+
+        <pre>
+        <code>
+{
+  "name": "hello-ripple",
+  "version": "0.0.1",
+  "dependencies": {
+    "ripple-lib": "*"
+  }
+}
+        </code>
+        </pre>
+
+        <div>Install it:</div>
+
+        <pre><code>$ yarn</code></pre>
+      </div>
+
+      <div id="Code1" class="step max-content" data-x="0" data-y="8000">
+        <h2>Initial Setup</h2>
+
+        <ul>
+          <li>
+            <div>Create a 'hello-ripple.js' and import ripple-lib</div>
+            <pre>const RippleAPI = require('ripple-lib').RippleAPI;</pre>
+
+          </li>
+
+          <li>
+            <div>Setup your connection &amp; connect</div>
+            <pre>
+            <code>
+const api = new RippleAPI({
+  server: 'wss://s.altnet.rippletest.net:51233'
+});
+
+api.connect().then(() => {
+  // more code will go here
+}).catch(console.error);
+            </code>
+            </pre>
+          </li>
+
+          <li>
+            <div>Note we're connecting to the <b>testnet</b> here</div>
+            <ul>
+              <li>Use <b>wss://s1.ripple.com</b> to connect to the <b>mainnet</b>,</li>
+              <li><b>wss://s2.ripple.com</b> to connect to a mainnet node with <b>full history</b></li>
+              <li>Or any other rippled instance that you'd like! The code will be exactly the same!</li>
+            </ul>
+          </li>
+
+          <li style="margin-top: 10px">
+            <div>Run the code with:</div>
+            <pre>
+            <code>
+$ node hello-ripple.js
+            </code>
+            </pre>
+          </li>
+        </ul>
+      </div>
+
+      <div id="Code3" class="step max-content" data-x="0" data-y="10000">
+        <h1>Now lets do some cool stuff!</h1>
+
+        <h2>Retrieve your account info and balance:</h2>
+
+        <div>Inside the 'connect' callback above</div>
+
+        <pre>
+        <code>
+const myAddress = 'rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn';
+api.getAccountInfo(myAddress).then(info => {
+  console.log(info)
+});
+        </code>
+        </pre>
+      </div>
+
+      <div id="Code4" class="step max-content" data-x="0" data-y="12000">
+        <h2>Subscribe to transactions</h2>
+
+        <pre>
+        <code>
+api.connection.on('transaction', tx => {
+  console.log(tx);
+});
+
+api.connection.request({
+  command: 'subscribe',
+  streams: ['transactions']
+});
+        </code>
+        </pre>
+      </div>
+
+      <div id="Code5" class="step max-content" data-x="0" data-y="14000">
+        <h2>Filter transactions (using JSONPath)</h2>
+
+        <div>Add the following to the dependencies section in <b>package.json</b></div>
+
+        <pre>
+        <code>
+"jsonpath" : "*"
+        </code>
+        </pre>
+
+        <div>Add the following to the top of hello-ripple.js</div>
+
+        <pre>
+        <code>
+const jp = require('jsonpath');
+        </code>
+        </pre>
+
+        <div>And the following to the <i>transaction</i> handler</div>
+
+        <pre>
+        <code>
+if(jp.query(tx, '$..[?(@.TransactionResult == "tesSUCCESS")]').length > 0)
+    console.log(tx);
+        </code>
+        </pre>
+      </div>
+
+      <div id="Code6" class="step max-content" data-x="0" data-y="16000">
+        <h2>Send A Payment</h2>
+
+        <pre>
+        <code>
+// these are testnet accounts created for this demo!
+
+const src = { 'public' : 'rfArGpLJWxZqS8BR3gfCX5LgtAxXwMeHpQ',
+             'private' : 'ssXkpbkUftD47bvxxAa471yK65yjn'};
+
+const dst = { 'public' : 'rpTLussqxN8eByRd4dYJnTjkT38iKaKzEW' };
+
+const payment = { source : { address : src['public'], maxAmount : { value : "10", currency : 'XRP' } },
+             destination : { address : dst['public'],    amount : { value : "10", currency : 'XRP' } } };
+
+api.preparePayment(src['public'], payment, {}).then(prepared => {
+  const signed = api.sign(prepared.txJSON, src['private']);
+  api.submit(signed.signedTransaction).then(result => {
+    console.log(result);
+  });
+});
+        </code>
+        </pre>
+      </div>
+
+      <div id="Code7" class="step max-content" data-x="0" data-y="18000">
+        <h2>&amp; more</h2>
+
+        <ul>
+          <li>Create limit orders</li>
+          <li>Escrows</li>
+          <li>Payment Channels</li>
+          <li>Account Set</li>
+          <li>Trust Set</li>
+        </ul>
+      </div>
+
+      <div id="GUI1" class="step max-content" data-x="0" data-y="20000">
+        <h2>Throw a GUI ontop of this</h2>
+
+        <div>
+          ...
+        </div>
+      </div>
+
+      <div id="Fin" class="step max-content" data-x="0" data-y="22000">
+        <h1>FIN</h1>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../common/impress.js"></script>
+    <script>
+       impress().init();
+    </script>
+  </body>
+</html>
